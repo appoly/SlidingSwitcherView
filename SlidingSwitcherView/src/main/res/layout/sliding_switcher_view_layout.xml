@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/switch_motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layoutDescription="@xml/sliding_switcher_scene"
+        android:background="@drawable/switcher_background">
+
+        <View
+            android:id="@+id/selected_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/switcher_item_checked_background"
+            android:elevation="@dimen/cart_tabs_selected_elevation"
+            app:layout_constraintBottom_toBottomOf="@id/start_tab"
+            app:layout_constraintEnd_toEndOf="@id/start_tab"
+            app:layout_constraintStart_toStartOf="@id/start_tab"
+            app:layout_constraintTop_toTopOf="@id/start_tab" />
+
+        <CheckedTextView
+            android:id="@+id/start_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/switcher_inset"
+            android:layout_marginStart="@dimen/switcher_inset"
+            android:padding="@dimen/card_tab_padding"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/switcher_text_size"
+            android:textColor="@color/switcher_text_color"
+            tools:text="Left"
+            android:elevation="@dimen/cart_tabs_selected_elevation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/end_tab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:checked="true"
+            android:animateLayoutChanges="true"/>
+
+        <CheckedTextView
+            android:id="@+id/end_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/switcher_inset"
+            android:layout_marginEnd="@dimen/switcher_inset"
+            android:padding="@dimen/card_tab_padding"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/switcher_text_size"
+            android:textColor="@color/switcher_text_color"
+            tools:text="Right"
+            android:elevation="@dimen/cart_tabs_selected_elevation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/start_tab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:checked="false"
+            android:animateLayoutChanges="true" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>
