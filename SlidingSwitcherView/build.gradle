@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+group = 'com.github.appoly'
+
 android {
     compileSdk 32
 
