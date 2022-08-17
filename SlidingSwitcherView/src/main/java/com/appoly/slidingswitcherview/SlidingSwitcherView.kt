@@ -5,13 +5,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.StringRes
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.duck.slidingswitcherview.R
 import com.duck.slidingswitcherview.databinding.SlidingSwitcherViewLayoutBinding
 
-class SlidingSwitcherView: MotionLayout {
-    @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet? = null): super(context, attrs)
-    @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int): super(context, attrs, defStyleAttr)
+class SlidingSwitcherView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : MotionLayout(context, attrs, defStyleAttr) {
 
     private val layoutInflater: LayoutInflater
         get() = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -39,16 +38,27 @@ class SlidingSwitcherView: MotionLayout {
     }
 
     fun setStartText(@StringRes text: Int) = binding.startTab.setText(text)
-    fun setStartText(text: String) { binding.startTab.text = text }
+    fun setStartText(text: CharSequence) { binding.startTab.text = text }
 
     fun setEndText(@StringRes text: Int) = binding.endTab.setText(text)
-    fun setEndText(text: String) { binding.endTab.text = text }
+    fun setEndText(text: CharSequence) { binding.endTab.text = text }
 
     fun setOnSwitchChangeListener(onSwitchChangeListener: OnSwitchChangeListener?) {
         this.onSwitchChangeListener = onSwitchChangeListener
     }
 
     init {
+        val a = context.obtainStyledAttributes(attrs, R.styleable.SlidingSwitcherView)
+        val startItemText = a.getText(R.styleable.SlidingSwitcherView_startItemText)
+        val endItemText = a.getText(R.styleable.SlidingSwitcherView_endItemText)
+        a.recycle()
+        if(!startItemText.isNullOrBlank()) {
+            setStartText(startItemText)
+        }
+        if(!endItemText.isNullOrBlank()) {
+            setEndText(endItemText)
+        }
+
         // Setting initial state
         setSwitchState(SwitchSate.Start)
         binding.startTab.isChecked = true

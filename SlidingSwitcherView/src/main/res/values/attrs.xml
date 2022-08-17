@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SlidingSwitcherView">
+        <attr name="startItemText" format="string"/>
+        <attr name="endItemText" format="string"/>
+    </declare-styleable>
+</resources>
