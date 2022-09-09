@@ -1,6 +1,7 @@
 package com.appoly.slidingswitcherview
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.StringRes
@@ -62,7 +63,9 @@ class SlidingSwitcherView @JvmOverloads constructor(
         // Setting initial state
         setSwitchState(SwitchSate.Start)
         binding.startTab.isChecked = true
+        binding.startTab.setTypeface(null, Typeface.BOLD)
         binding.endTab.isChecked = false
+        binding.endTab.setTypeface(null, Typeface.NORMAL)
 
         // Listener to change the isChecked state with the slide animation
         binding.switchMotionLayout.setTransitionListener(object: MotionLayout.TransitionListener {
@@ -70,9 +73,11 @@ class SlidingSwitcherView @JvmOverloads constructor(
                 when(switchLayoutState) {
                     SwitchSate.Start -> {
                         binding.endTab.isChecked = false
+                        binding.endTab.setTypeface(null, Typeface.NORMAL)
                     }
                     SwitchSate.End -> {
                         binding.startTab.isChecked = false
+                        binding.startTab.setTypeface(null, Typeface.NORMAL)
                     }
                 }
             }
@@ -80,9 +85,11 @@ class SlidingSwitcherView @JvmOverloads constructor(
                 when(switchLayoutState) {
                     SwitchSate.Start -> {
                         binding.startTab.isChecked = true
+                        binding.startTab.setTypeface(null, Typeface.BOLD)
                     }
                     SwitchSate.End -> {
                         binding.endTab.isChecked = true
+                        binding.endTab.setTypeface(null, Typeface.BOLD)
                     }
                 }
                 //invoke listener
