@@ -1,8 +1,34 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '8.0.1' apply false
-    id 'com.android.library' version '8.0.1' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+
+buildscript {
+    ext {
+        kotlin_version = '2.2.20'
+        gradle_version = '9.0.0'
+        androidxCoreVersion = '1.17.0'
+        materialVersion = '1.13.0'
+        lifecycle_version = '2.10.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
 }
 
 task clean(type: Delete) {
@@ -10,6 +36,6 @@ task clean(type: Delete) {
 }
 
 wrapper {
-    gradleVersion = '8.0.1'//this version should match the version used in { classpath "com.android.tools.build:gradle:a.b.c }
+    gradleVersion = "$gradle_version"//this version should match the version used in { classpath "com.android.tools.build:gradle:a.b.c }
     distributionType = Wrapper.DistributionType.ALL
 }
