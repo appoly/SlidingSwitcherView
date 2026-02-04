@@ -1,13 +1,13 @@
 import com.android.build.api.dsl.LibraryExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.library)
-    id("org.jetbrains.kotlin.android")
     `maven-publish`
 }
 
 group = "com.github.appoly"
-version = "1.0.0-rc02"
+version = "1.0.0"
 
 configure<LibraryExtension> {
     namespace = "com.appoly.slidingswitcherview"
@@ -44,6 +44,12 @@ configure<LibraryExtension> {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 

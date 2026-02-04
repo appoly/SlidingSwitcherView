@@ -1,6 +1,5 @@
 [versions]
 agp = "9.0.0"
-kotlin = "2.3.0"
 compileSdk = "36"
 minSdk = "23"
 targetSdk = "36"
@@ -36,4 +35,3 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
