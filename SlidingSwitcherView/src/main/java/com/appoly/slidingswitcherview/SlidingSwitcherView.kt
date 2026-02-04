@@ -6,8 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.StringRes
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.duck.slidingswitcherview.R
-import com.duck.slidingswitcherview.databinding.SlidingSwitcherViewLayoutBinding
+import com.appoly.slidingswitcherview.databinding.SlidingSwitcherViewLayoutBinding
 
 class SlidingSwitcherView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
