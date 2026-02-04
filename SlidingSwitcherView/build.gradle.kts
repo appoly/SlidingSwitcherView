@@ -2,13 +2,21 @@ import com.android.build.api.dsl.LibraryExtension
 
 plugins {
     alias(libs.plugins.android.library)
+    `maven-publish`
 }
 
 group = "com.github.appoly"
+version = "1.0.0"
 
 configure<LibraryExtension> {
     namespace = "com.duck.slidingswitcherview"
     compileSdk = libs.versions.compileSdk.get().toInt()
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
@@ -48,4 +56,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["release"])
+            }
+            groupId = "com.github.appoly"
+            artifactId = "SlidingSwitcherView"
+            version = project.version.toString()
+        }
+    }
 }
