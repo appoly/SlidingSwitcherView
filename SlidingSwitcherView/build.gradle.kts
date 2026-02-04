@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.appoly"
-version = "1.0.1"
+version = "1.0.2"
 
 configure<LibraryExtension> {
     namespace = "com.appoly.slidingswitcherview"
