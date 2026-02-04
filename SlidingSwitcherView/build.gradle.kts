@@ -9,7 +9,7 @@ group = "com.github.appoly"
 version = "1.0.0"
 
 configure<LibraryExtension> {
-    namespace = "com.duck.slidingswitcherview"
+    namespace = "com.appoly.slidingswitcherview"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     publishing {
