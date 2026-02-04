@@ -2,12 +2,12 @@ import com.android.build.api.dsl.LibraryExtension
 
 plugins {
     alias(libs.plugins.android.library)
-    id("org.jetbrains.kotlin.plugin.parcelize")
+    id("org.jetbrains.kotlin.android")
     `maven-publish`
 }
 
 group = "com.github.appoly"
-version = "1.0.0"
+version = "1.0.0-rc02"
 
 configure<LibraryExtension> {
     namespace = "com.appoly.slidingswitcherview"
